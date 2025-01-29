@@ -10,7 +10,10 @@ mongoose.connect(process.env.MONGO_DB as string)
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+   origin: "https://mern-food-ordering-app-frontend-zeta.vercel.app/",
+    credentials: true, 
+}));
 
 
 app.get("/health" , async(req:Request, res: Response)=>{
