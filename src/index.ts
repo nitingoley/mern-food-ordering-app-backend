@@ -22,7 +22,10 @@ api_secret: process.env.CLOUDINARY_API_SECRET,
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+   origin: "*",
+    credentials: true, 
+}));
 
 app.get("/health", async (req: Request, res: Response) => {
   res.send({ message: "Health Okay~" });
